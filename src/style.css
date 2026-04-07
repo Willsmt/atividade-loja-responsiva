@@ -1,0 +1,221 @@
+/* ------------------------- */
+/* RESET BÁSICO */
+/* Remove margens e espaçamentos padrão dos elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ------------------------- */
+/* CONFIGURAÇÕES GERAIS DO BODY */
+body {
+  font-family: Arial, sans-serif; /* Define a fonte padrão */
+  background-color: #f5f5f5; /* Cor de fundo clara */
+  color: #333; /* Cor do texto */
+  display: flex; /* Usa flexbox para organizar o layout */
+  flex-direction: column; /* Organiza os elementos em coluna */
+  min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+}
+
+/* ------------------------- */
+/* COMPORTAMENTO DE ROLAGEM SUAVE */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ------------------------- */
+/* CONTAINER CENTRALIZADO */
+.container {
+  max-width: 1024px; /* Largura máxima do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 16px; /* Espaçamento interno */
+}
+
+/* ------------------------- */
+/* HEADER (CABEÇALHO) */
+.header {
+  background-color: #0b0c0c; /* Fundo escuro */
+  color: #fff; /* Texto branco */
+}
+
+.header-flex {
+  display: flex; /* Layout flexível */
+  justify-content: space-between; /* Espaça logo e menu */
+  align-items: center; /* Alinha verticalmente */
+}
+
+.menu {
+  list-style: none; /* Remove marcadores da lista */
+  display: flex; /* Exibe os itens lado a lado */
+  gap: 20px; /* Espaçamento entre os links */
+}
+
+.menu a {
+  color: #fff; /* Cor dos links */
+  text-decoration: none; /* Remove sublinhado */
+  font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* ------------------------- */
+/* SEÇÃO SOBRE A LOJA */
+.sobre {
+  display: grid; /* Usa grid para layout */
+  grid-template-columns: 40% 60%; /* Divide em duas colunas */
+  gap: 32px; /* Espaçamento entre colunas */
+  margin: 40px 0; /* Espaçamento vertical */
+}
+
+.sobre img {
+  width: 100%; /* Imagem ocupa toda a largura da coluna */
+  height: auto; /* Mantém proporção */
+  border-radius: 6px; /* Cantos arredondados */
+}
+
+.sobre-texto h2 {
+  margin-bottom: 8px;
+  color: #0b0c0c;
+}
+
+/* Linha decorativa abaixo do título */
+.sobre-texto h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #0b0c0c;
+  margin-top: 8px;
+}
+
+.sobre-texto p {
+  font-size: 15px;
+  line-height: 1.6; /* Espaçamento entre linhas */
+  margin-top: 12px;
+}
+
+/* ------------------------- */
+/* SEÇÃO DE PRODUTOS */
+.produtos {
+  margin-top: 40px;
+}
+
+.produtos h2 {
+  color: #0b0c0c;
+  margin-bottom: 12px;
+}
+
+/* Linha decorativa abaixo do título */
+.produtos h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #0b0c0c;
+  margin-top: 8px;
+}
+
+/* Grid dos produtos */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+  gap: 16px;
+  margin-top: 20px;
+  align-items: stretch; /* Faz todos os cards terem a mesma altura */
+}
+
+/* Card individual do produto */
+.produto {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  display: flex; /* Organiza o conteúdo em coluna */
+  flex-direction: column;
+}
+
+.produto img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain; /* Mantém proporção da imagem */
+  margin-bottom: 10px;
+}
+
+.produto h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.produto p {
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+/* Botão sempre alinhado ao final do card */
+.produto button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  background-color: #0b0c0c;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: auto; /* Empurra o botão para o final */
+}
+
+.produto button:hover {
+  background-color: #1c3fc5; /* Cor ao passar o mouse */
+}
+
+/* ------------------------- */
+/* FOOTER (RODAPÉ) */
+.footer {
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+  padding: 16px;
+  margin-top: auto; /* Mantém o rodapé no final da página */
+}
+
+/* ------------------------- */
+/* RESPONSIVIDADE */
+/* TABLET (641px até 1023px) */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .container {
+    max-width: 90%;
+  }
+
+  .sobre {
+    grid-template-columns: 1fr; /* Coluna única */
+  }
+
+  .produtos-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  }
+}
+
+/* MOBILE (até 640px) */
+@media (max-width: 640px) {
+  .header-flex {
+    flex-direction: column; /* Empilha logo e menu */
+    gap: 10px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sobre {
+    grid-template-columns: 1fr; /* Coluna única */
+  }
+
+  .produtos-grid {
+    grid-template-columns: 1fr; /* Um produto por linha */
+  }
+
+  .produto img {
+    height: 180px; /* Ajusta altura da imagem */
+  }
+}
